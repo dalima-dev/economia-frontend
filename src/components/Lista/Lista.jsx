@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 
 function Lista({ objetivosLista, deleteById, updateById }) {
   return (
@@ -12,7 +11,7 @@ function Lista({ objetivosLista, deleteById, updateById }) {
               defaultValue={objetivo.descricao}
               onChange={(e) =>
                 objetivosLista.forEach((obj) => {
-                  if (obj.id == objetivo.id) obj.descricao = e.target.value;
+                  if (obj.id === objetivo.id) obj.descricao = e.target.value;
                 })
               }
             />
@@ -22,7 +21,7 @@ function Lista({ objetivosLista, deleteById, updateById }) {
               defaultValue={objetivo.valor}
               onChange={(e) =>
                 objetivosLista.forEach((obj) => {
-                  if (obj.id == objetivo.id) obj.valor = e.target.value;
+                  if (obj.id === objetivo.id) obj.valor = e.target.value;
                 })
               }
             />
@@ -32,7 +31,7 @@ function Lista({ objetivosLista, deleteById, updateById }) {
               defaultChecked={objetivo.atingido}
               onChange={(e) =>
                 objetivosLista.forEach((obj) => {
-                  if (obj.id == objetivo.id) obj.atingido = e.target.checked;
+                  if (obj.id === objetivo.id) obj.atingido = e.target.checked;
                 })
               }
             />
@@ -45,7 +44,7 @@ function Lista({ objetivosLista, deleteById, updateById }) {
               onClick={() =>
                 updateById(
                   objetivo.id,
-                  objetivosLista.find((obj) => obj.id == objetivo.id)
+                  objetivosLista.find((obj) => obj.id === objetivo.id)
                 )
               }
             >
