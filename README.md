@@ -1,1 +1,1 @@
-Deploy on Netlify: https://economia-frontend.netlify.app/
+Deploy em Netlify: https://economia-frontend.netlify.app/
