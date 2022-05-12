@@ -10,7 +10,7 @@ const transformObjetivo = (objetivo) => {
 };
 
 const parseTransformLista = (response) =>
-  parseResponse(response).then((paletas) => paletas.map(transformObjetivo));
+  parseResponse(response).then((objetivo) => objetivo.map(transformObjetivo));
 
 const parseTransformItem = (response) =>
   parseResponse(response).then(transformObjetivo);

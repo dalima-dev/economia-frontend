@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Input.css"
 
-function Input() {
+function Input({ create }) {
   return (
     <div id='input'>
         <input type="text" name="descricao" id="" placeholder='Descrição' />
