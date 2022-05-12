@@ -1,16 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function Lista({ objetivosLista, deleteById, updateById }) {
-  const [descricao, setDescricao] = useState("");
-  const [valor, setValor] = useState(0);
-  const [atingido, setAtingido] = useState(false);
-
-  const updatedObjetivo = {
-    descricao,
-    valor,
-    atingido,
-  };
-
   return (
     <ul>
       {objetivosLista.map((objetivo) => {
@@ -19,26 +9,46 @@ function Lista({ objetivosLista, deleteById, updateById }) {
             <input
               type="text"
               name="descricao"
-              value={objetivo.descricao}
-              onChange={(e) => setDescricao(e.target.value)}
+              defaultValue={objetivo.descricao}
+              onChange={(e) =>
+                objetivosLista.forEach((obj) => {
+                  if (obj.id == objetivo.id) obj.descricao = e.target.value;
+                })
+              }
             />
             <input
               type="number"
               name="valor"
-              value={objetivo.valor}
-              onChange={(e) => setValor(e.target.value)}
+              defaultValue={objetivo.valor}
+              onChange={(e) =>
+                objetivosLista.forEach((obj) => {
+                  if (obj.id == objetivo.id) obj.valor = e.target.value;
+                })
+              }
             />
             <input
               type="checkbox"
               name="atingido"
-              onChange={(e) => setAtingido(e.target.checked)}
+              defaultChecked={objetivo.atingido}
+              onChange={(e) =>
+                objetivosLista.forEach((obj) => {
+                  if (obj.id == objetivo.id) obj.atingido = e.target.checked;
+                })
+              }
             />
             <input
               type="button"
               value="X"
               onClick={() => deleteById(objetivo.id)}
             />
-            <button onClick={() => updateById(objetivo.id, updatedObjetivo)}>
+            <button
+              onClick={() =>
+                updateById(
+                  objetivo.id,
+                  objetivosLista.find((obj) => obj.id == objetivo.id)
+                )
+              }
+            >
               Atualizar
             </button>
           </li>

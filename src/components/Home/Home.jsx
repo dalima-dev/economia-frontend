@@ -37,7 +37,11 @@ function Home() {
   return (
     <div id="display">
       <Input create={create} />
-      <Lista objetivosLista={objetivosLista} deleteById={deleteById} updateById={updateById} />
+      <Lista
+        objetivosLista={objetivosLista}
+        deleteById={deleteById}
+        updateById={updateById}
+      />
     </div>
   );
 }
