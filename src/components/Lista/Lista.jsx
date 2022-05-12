@@ -1,4 +1,3 @@
-
 function Lista({ objetivosLista, deleteById, updateById }) {
   return (
     <ul>
