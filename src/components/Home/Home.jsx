@@ -8,6 +8,7 @@ function Home() {
   const [objetivosLista, setObjetivosLista] = useState([]);
   const [createObjetivo, setCreateObjetivo] = useState(0);
   const [deleteObjetivo, setDeleteObjetivo] = useState(0);
+  const [updateObjetivo, setUpdateObjetivo] = useState(0);
 
   const getLista = async () => {
     const response = await objetivoService.getList();
@@ -19,6 +20,11 @@ function Home() {
     setCreateObjetivo(createObjetivo + 1);
   };
 
+  const updateById = async (id, objetivo) => {
+    await objetivoService.updateById(id, objetivo);
+    setUpdateObjetivo(updateObjetivo + 1);
+  };
+
   const deleteById = async (id) => {
     await objetivoService.deleteById(id);
     setDeleteObjetivo(deleteObjetivo + 1);
@@ -26,12 +32,12 @@ function Home() {
 
   useEffect(() => {
     getLista();
-  }, [createObjetivo, deleteObjetivo]);
+  }, [createObjetivo, deleteObjetivo, updateObjetivo]);
 
   return (
     <div id="display">
       <Input create={create} />
-      <Lista objetivosLista={objetivosLista} deleteById={deleteById} />
+      <Lista objetivosLista={objetivosLista} deleteById={deleteById} updateById={updateById} />
     </div>
   );
 }
