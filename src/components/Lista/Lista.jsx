@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
 
-function Lista() {
+function Lista({ objetivosLista }) {
   return (
-    <div>Lista</div>
-  )
+    <ul>
+      {objetivosLista.map((objetivo) => {
+        <li key={objetivo.id}>
+          {`${objetivo.descricao} ${objetivo.valor}`}
+          {objetivo.atingido ? (
+            <input type="checkbox" name="atingido" checked />
+          ) : (
+            <input type="checkbox" name="atingido" />
+          )}
+        </li>;
+      })}
+    </ul>
+  );
 }
 
-export default Lista
+export default Lista;

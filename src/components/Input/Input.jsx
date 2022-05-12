@@ -1,8 +1,13 @@
 import React from 'react'
+import "./Input.css"
 
 function Input() {
   return (
-    <div>Input</div>
+    <div id='input'>
+        <input type="text" name="descricao" id="" placeholder='Descrição' />
+        <input type="number" name="valor" id="" placeholder='Valor' />
+        <input type="button" value="Cadastrar" />
+    </div>
   )
 }
 

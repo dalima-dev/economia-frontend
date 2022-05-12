@@ -1,12 +1,15 @@
 const baseUrl = `https://economia-server.herokuapp.com`;
 
 const objetivoContext = {
-  medicEndpoint: () => `${baseUrl}/economia`,
-  medicList: () => `${medicContext.medicEndpoint()}/find-objetivos`,
-  medicById: (id) => `${medicContext.medicEndpoint()}/find-objetivos/${id}`,
-  createMedic: () => `${medicContext.medicEndpoint()}/create`,
-  updateMedicById: (id) => `${medicContext.medicEndpoint()}/update/${id}`,
-  deleteMedicById: (id) => `${medicContext.medicEndpoint()}/delete/${id}`,
+  objetivoEndpoint: () => `${baseUrl}/economia`,
+  objetivoList: () => `${objetivoContext.objetivoEndpoint()}/find-objetivos`,
+  objetivoById: (id) =>
+    `${objetivoContext.objetivoEndpoint()}/find-objetivos/${id}`,
+  createObjetivo: () => `${objetivoContext.objetivoEndpoint()}/create`,
+  updateObjetivoById: (id) =>
+    `${objetivoContext.objetivoEndpoint()}/update/${id}`,
+  deleteObjetivoById: (id) =>
+    `${objetivoContext.objetivoEndpoint()}/delete/${id}`,
 };
 
 export const Api = { ...objetivoContext };
